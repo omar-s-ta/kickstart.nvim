@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -229,6 +229,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+  { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -266,87 +267,18 @@ require('lazy').setup({
     },
   },
 
-  -- {
-  --   'mrcjkb/rustaceanvim',
-  --   version = '^5', -- Recommended
-  --   ft = { 'rust' },
-  --   opts = {
-  --     server = {
-  --       on_attach = function(_, bufnr)
-  --         vim.keymap.set('n', '<leader>cR', function()
-  --           vim.cmd.RustLsp 'codeAction'
-  --         end, { desc = 'Code Action', buffer = bufnr })
-  --         vim.keymap.set('n', '<leader>dr', function()
-  --           vim.cmd.RustLsp 'debuggables'
-  --         end, { desc = 'Rust Debuggables', buffer = bufnr })
-  --       end,
-  --       default_settings = {
-  --         -- rust-analyzer language server configuration
-  --         ['rust-analyzer'] = {
-  --           cargo = {
-  --             allFeatures = true,
-  --             loadOutDirsFromCheck = true,
-  --             buildScripts = {
-  --               enable = true,
-  --             },
-  --           },
-  --           -- Add clippy lints for Rust.
-  --           checkOnSave = true,
-  --           procMacro = {
-  --             enable = true,
-  --             ignored = {
-  --               ['async-trait'] = { 'async_trait' },
-  --               ['napi-derive'] = { 'napi' },
-  --               ['async-recursion'] = { 'async_recursion' },
-  --             },
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  --   config = function(_, opts)
-  --     vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, opts or {})
-  --     if vim.fn.executable 'rust-analyzer' == 1 then
-  --       LazyVim.error('**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/', { title = 'rustaceanvim' })
-  --     end
-  --   end,
-  -- },
-
   {
-    'nvim-neotest/neotest',
-    optional = true,
-    opts = {
-      adapters = {
-        ['rustaceanvim.neotest'] = {},
-      },
-    },
-  },
-
-  {
-    'scalameta/nvim-metals',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    ft = { 'scala', 'sbt', 'java' },
-    opts = function()
-      local metals_config = require('metals').bare_config()
-      metals_config.on_attach = function(client, bufnr)
-        -- your on_attach function
-      end
-
-      return metals_config
-    end,
-    config = function(self, metals_config)
-      local nvim_metals_group = vim.api.nvim_create_augroup('nvim-metals', { clear = true })
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = self.ft,
-        callback = function()
-          require('metals').initialize_or_attach(metals_config)
-        end,
-        group = nvim_metals_group,
-      })
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
     end,
   },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -830,6 +762,11 @@ require('lazy').setup({
     opts = function(_, opts)
       opts.sources = opts.sources or {}
       table.insert(opts.sources, { name = 'crates' })
+      table.insert(opts.sources, {
+        name = 'copilot',
+        group_index = 1,
+        priority = 100,
+      })
     end,
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
@@ -939,6 +876,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'copilot' },
         },
       }
     end,
@@ -950,12 +888,14 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
+    'rebelot/kanagawa.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'kanagawa'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -1043,6 +983,11 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.metals',
+  require 'kickstart.plugins.rust',
+  require 'kickstart.plugins.copilot',
+  require 'kickstart.plugins.copilot-cmp',
+  require 'kickstart.plugins.lualine',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
