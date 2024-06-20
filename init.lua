@@ -229,7 +229,13 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
+  {
+    'LazyVim/LazyVim',
+    import = 'lazyvim.plugins',
+    opts = {
+      colorscheme = 'catppuccin-frappe',
+    },
+  },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -894,13 +900,14 @@ require('lazy').setup({
     'folke/tokyonight.nvim',
     'rebelot/kanagawa.nvim',
     'shaunsingh/nord.nvim',
+    'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.colorscheme 'nord'
+      -- vim.cmd.colorscheme 'nord'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
