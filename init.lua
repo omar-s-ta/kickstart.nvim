@@ -233,7 +233,7 @@ require('lazy').setup({
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
     opts = {
-      colorscheme = 'catppuccin-frappe',
+      colorscheme = 'kanagawa',
     },
   },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
