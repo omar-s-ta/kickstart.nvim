@@ -1,6 +1,6 @@
 return {
   'mrcjkb/rustaceanvim',
-  version = '^5', -- Recommended
+  version = '^4', -- Recommended
   ft = { 'rust' },
   opts = {
     server = {
@@ -38,5 +38,8 @@ return {
   },
   config = function(_, opts)
     vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, opts or {})
+    if vim.fn.executable 'rust-analyzer' == 0 then
+      LazyVim.error('**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/', { title = 'rustaceanvim' })
+    end
   end,
 }
