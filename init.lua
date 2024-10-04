@@ -543,6 +543,9 @@ require('lazy').setup({
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
+          map('<leader>in', require('telescope.builtin').lsp_incoming_calls, '[I]ncoming Calls')
+          map('<leader>out', require('telescope.builtin').lsp_outgoing_calls, '[O]utgoing Calls')
+
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
