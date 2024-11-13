@@ -668,6 +668,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        marksman = {},
         taplo = {
           keys = {
             {
@@ -747,6 +748,8 @@ require('lazy').setup({
         'codelldb',
         'prettierd',
         'prettier',
+        'markdownlint-cli2',
+        'markdown-toc',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -797,6 +800,25 @@ require('lazy').setup({
           lsp_format = lsp_format_opt,
         }
       end,
+      formatters = {
+        ['markdown-toc'] = {
+          condition = function(_, ctx)
+            for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
+              if line:find '<!%-%- toc %-%->' then
+                return true
+              end
+            end
+          end,
+        },
+        ['markdownlint-cli2'] = {
+          condition = function(_, ctx)
+            local diag = vim.tbl_filter(function(d)
+              return d.source == 'markdownlint'
+            end, vim.diagnostic.get(ctx.buf))
+            return #diag > 0
+          end,
+        },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
@@ -807,6 +829,9 @@ require('lazy').setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         json = { 'jq' },
+
+        ['markdown'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
+        ['markdown.mdx'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
       },
     },
   },
@@ -1077,6 +1102,8 @@ require('lazy').setup({
   require 'kickstart.plugins.copilot-cmp',
   require 'kickstart.plugins.lualine',
   require 'kickstart.plugins.which-key',
+  require 'kickstart.plugins.markdown-preview',
+  require 'kickstart.plugins.render-markdown',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
