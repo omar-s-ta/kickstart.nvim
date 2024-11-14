@@ -234,14 +234,8 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  {
-    'LazyVim/LazyVim',
-    import = 'lazyvim.plugins',
-    opts = {
-      colorscheme = 'kanagawa',
-    },
-  },
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+
+  require 'kickstart.plugins.core',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
