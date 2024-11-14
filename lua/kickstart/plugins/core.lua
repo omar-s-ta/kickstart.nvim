@@ -11,7 +11,7 @@ return {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
     opts = {
-      colorscheme = 'kanagawa',
+      colorscheme = 'nord',
     },
   },
 
