@@ -1040,7 +1040,6 @@ require('lazy').setup({
         'query',
         'vim',
         'vimdoc',
-        'scala',
         'rust',
         'ron',
         'json',
