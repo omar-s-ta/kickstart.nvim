@@ -1,4 +1,12 @@
 return {
+  install = {
+    colorscheme = {
+      'kanagawa',
+      'tokyonight',
+      'nord',
+    },
+  },
+
   {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
