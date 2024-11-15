@@ -1,18 +1,10 @@
 return {
-  install = {
-    colorscheme = {
-      'kanagawa',
-      'tokyonight',
-      'nord',
-    },
-  },
-
   {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
-    opts = {
-      colorscheme = 'nord',
-    },
+    -- opts = {
+    --   colorscheme = 'gruvbox',
+    -- }
   },
 
   -- Detect tabstop and shiftwidth automatically
