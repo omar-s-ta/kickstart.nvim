@@ -1082,7 +1082,6 @@ require('lazy').setup({
   require 'kickstart.plugins.copilot',
   require 'kickstart.plugins.copilot-cmp',
   require 'kickstart.plugins.lualine',
-  require 'kickstart.plugins.which-key',
   require 'kickstart.plugins.markdown-preview',
   require 'kickstart.plugins.render-markdown',
 
