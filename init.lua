@@ -263,16 +263,6 @@ require('lazy').setup({
   },
 
   {
-    'Saecki/crates.nvim',
-    event = { 'BufRead Cargo.toml' },
-    opts = {
-      completion = {
-        cmp = { enabled = true },
-      },
-    },
-  },
-
-  {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
     event = 'InsertEnter',
@@ -1019,8 +1009,6 @@ require('lazy').setup({
         'query',
         'vim',
         'vimdoc',
-        'rust',
-        'ron',
         'json',
       },
       -- Autoinstall languages that are not installed
@@ -1057,7 +1045,7 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'kickstart.plugins.rust',
+
   require 'kickstart.plugins.copilot',
   require 'kickstart.plugins.copilot-cmp',
   require 'kickstart.plugins.lualine',
