@@ -2,9 +2,9 @@ return {
   {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
-    -- opts = {
-    --   colorscheme = 'gruvbox',
-    -- }
+    opts = {
+      colorscheme = 'catppuccin',
+    },
   },
 
   -- Detect tabstop and shiftwidth automatically
