@@ -1091,6 +1091,8 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
   {
     import = 'custom.plugins',
+    -- scala.lua
+    -- toggleterm.lua
   },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
