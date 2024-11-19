@@ -853,9 +853,6 @@ require('lazy').setup({
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
-    keys = {
-      { '<leader>\\', ':lua MiniFiles.open()<CR>', { desc = 'open minifiles' } },
-    },
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -871,7 +868,6 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
-      require('mini.files').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
