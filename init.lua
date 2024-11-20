@@ -953,6 +953,7 @@ require('lazy').setup({
     -- scala.lua
     -- toggleterm.lua
     -- colorschemes.lua
+    -- undotree.lua
   },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
