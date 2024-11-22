@@ -955,6 +955,7 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
   {
     import = 'custom.plugins',
+    -- disable.lua
     -- scala.lua
     -- toggleterm.lua
     -- colorschemes.lua
