@@ -2,9 +2,9 @@ return {
   {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
-    opts = {
-      colorscheme = 'catppuccin',
-    },
+    -- opts = {
+    --   colorscheme = 'catppuccin',
+    -- },
   },
 
   { import = 'lazyvim.plugins.extras.ai.copilot' },

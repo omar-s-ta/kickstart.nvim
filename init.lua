@@ -586,6 +586,22 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'bashls',
+        'clangd',
+        'neocmake',
+        'dockerls',
+        'docker_compose_language_service',
+        'eslint',
+        'helm_ls',
+        'html',
+        'jdtls',
+        'jsonls',
+        'kotlin_language_server',
+        'marksman',
+        'taplo',
+        'terraformls',
+        'prettier',
+        'yamlls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -891,7 +907,6 @@ require('lazy').setup({
     -- toggleterm.lua
     -- colorschemes.lua
     -- undotree.lua
-    -- mason-ensure-installed.lua
     -- helper-commands.lua
   },
   --
