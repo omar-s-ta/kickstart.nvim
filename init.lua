@@ -978,6 +978,7 @@ require('lazy').setup({
     -- colorschemes.lua
     -- undotree.lua
     -- mason-ensure-installed.lua
+    -- helper-commands.lua
   },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
