@@ -151,6 +151,11 @@ require('lazy').setup({
 
   require 'kickstart.plugins.after.core',
 
+  -- copilot
+  require 'kickstart.plugins.after.copilot',
+  require 'kickstart.plugins.after.lualine',
+  --
+
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -670,8 +675,8 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
       {
+        -- Snippet Engine & its associated nvim-cmp source
         'L3MON4D3/LuaSnip',
         build = (function()
           -- Build Step is needed for regex support in snippets.
@@ -695,14 +700,18 @@ require('lazy').setup({
         },
       },
       'saadparwaiz1/cmp_luasnip',
-
-      -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
-      --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      'zbirenbaum/copilot-cmp',
     },
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = 'copilot',
+        group_index = 1,
+        priority = 100,
+      })
+    end,
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
@@ -772,30 +781,12 @@ require('lazy').setup({
         sources = {
           {
             name = 'lazydev',
-            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-            group_index = 0,
+            group_index = 0, -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
           },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'buffer' },
-        },
-      }
-      cmp.setup.buffer {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        {
-          name = 'buffer',
-          option = {
-            get_bufnrs = function()
-              local bufs = {}
-              for _, win in ipairs(vim.api.nvim_list_wins()) do
-                bufs[vim.api.nvim_win_get_buf(win)] = true
-              end
-              return vim.tbl_keys(bufs)
-            end,
-          },
         },
       }
     end,
