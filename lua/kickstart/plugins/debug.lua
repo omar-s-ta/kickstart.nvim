@@ -21,6 +21,8 @@ return {
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
+    'jbyuki/one-small-step-for-vimkind',
+
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
   },

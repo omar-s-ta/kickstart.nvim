@@ -9,7 +9,6 @@ return {
 
   { import = 'lazyvim.plugins.extras.ai.copilot-chat' },
   { import = 'lazyvim.plugins.extras.coding.yanky' },
-  { import = 'lazyvim.plugins.extras.dap.nlua' },
   { import = 'lazyvim.plugins.extras.editor.mini-files' },
   { import = 'lazyvim.plugins.extras.formatting.prettier' },
   { import = 'lazyvim.plugins.extras.lang.clojure' },
