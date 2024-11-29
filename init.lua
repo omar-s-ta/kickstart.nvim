@@ -36,6 +36,7 @@ require('lazy').setup({
 
   require 'kickstart.plugins.after.lua-snippets',
   require 'kickstart.plugins.after.one-small-step-for-vimkind',
+  require 'kickstart.plugins.after.none-ls',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -653,7 +654,7 @@ require('lazy').setup({
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
-    config = function()
+    config = function(_, _)
       -- Better Around/Inside textobjects
       --
       -- Examples:
