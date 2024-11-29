@@ -3,12 +3,11 @@ return {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
     opts = {
-      colorscheme = 'nord',
+      colorscheme = 'catppuccin',
     },
   },
 
   { import = 'lazyvim.plugins.extras.ai.copilot-chat' },
-  { import = 'lazyvim.plugins.extras.coding.luasnip' },
   { import = 'lazyvim.plugins.extras.coding.yanky' },
   { import = 'lazyvim.plugins.extras.dap.nlua' },
   { import = 'lazyvim.plugins.extras.editor.mini-files' },
