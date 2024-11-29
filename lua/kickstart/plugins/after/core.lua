@@ -2,6 +2,9 @@ return {
   {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
+    opts = {
+      colorscheme = 'nord',
+    },
   },
 
   { import = 'lazyvim.plugins.extras.ai.copilot-chat' },
