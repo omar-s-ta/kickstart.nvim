@@ -123,6 +123,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_create_user_command('VimInitTest', function()
-  print 'vim-init.lua'
+vim.api.nvim_create_user_command('OptionsCheck', function()
+  print 'options.lua'
 end, {})
