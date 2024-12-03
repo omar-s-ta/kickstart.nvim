@@ -16,4 +16,13 @@ vim.api.nvim_create_user_command('LSPInstalled', function()
   print_table_with_text('installed_lsps:', servers)
 end, {})
 
+vim.api.nvim_create_user_command('DeleteAllMarks', function()
+  vim.cmd.delmarks 'a-z'
+  vim.cmd.delmarks 'A-Z'
+  vim.cmd.delmarks '0-9'
+  vim.cmd.delmarks '^.[]'
+  vim.cmd.delmarks '"'
+  vim.cmd 'delmarks!'
+end, { desc = 'Delete all marks across all buffers' })
+
 return {}
