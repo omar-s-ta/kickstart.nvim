@@ -92,6 +92,35 @@ return {
   },
 
   {
+    'folke/edgy.nvim',
+    opts = function(_, opts)
+      opts.keys = vim.tbl_extend('force', opts.keys or {}, {
+        ['<c-Right>'] = nil,
+        ['<c-Left>'] = nil,
+        ['<c-Up>'] = nil,
+        ['<c-Down>'] = nil,
+
+        -- increase width
+        ['<C-S-Right>'] = function(win)
+          win:resize('width', 2)
+        end,
+        -- decrease width
+        ['<C-S-Left>'] = function(win)
+          win:resize('width', -2)
+        end,
+        -- increase height
+        ['<C-S-Up>'] = function(win)
+          win:resize('height', 2)
+        end,
+        -- decrease height
+        ['<C-S-Down>'] = function(win)
+          win:resize('height', -2)
+        end,
+      })
+    end,
+  },
+
+  {
     'cuducos/yaml.nvim',
     ft = { 'yaml' }, -- optional
     dependencies = {
