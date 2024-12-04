@@ -35,4 +35,4 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command('LSPInstalled', M.delegate_print('installed_lsps:', M.installed_lsp_servers()), { desc = 'List installed LSP servers' })
 vim.api.nvim_create_user_command('DeleteMarks', M.delete_marks, { desc = 'Delete all marks across all buffers' })
 
-return M
+return {}
