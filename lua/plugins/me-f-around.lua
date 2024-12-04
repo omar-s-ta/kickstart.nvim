@@ -1,28 +1,38 @@
-local function print_table_with_text(text, tbl)
+local M = {}
+
+function M.print_tbl_elems_with_header(text, tbl)
   print(text .. ' (' .. #tbl .. ')\n' .. table.concat(tbl, '\n'))
 end
 
-vim.api.nvim_create_user_command('TSInstalled', function()
-  local treesitter_info = require 'nvim-treesitter.info'
-  local installed_parsers = treesitter_info.installed_parsers()
+function M.delegate_print(text, tbl)
+  return function()
+    M.print_tbl_elems_with_header(text, tbl)
+  end
+end
 
-  print_table_with_text('installed_parsers:', installed_parsers)
-end, {})
+function M.installed_treesitter_parsers()
+  return require('nvim-treesitter.info').installed_parsers()
+end
 
-vim.api.nvim_create_user_command('LSPInstalled', function()
-  local lspconfig = require 'lspconfig'
-  local servers = lspconfig.util.available_servers()
+function M.installed_lsp_servers()
+  return require('lspconfig').util.available_servers()
+end
 
-  print_table_with_text('installed_lsps:', servers)
-end, {})
-
-vim.api.nvim_create_user_command('DeleteAllMarks', function()
+function M.delete_marks()
   vim.cmd.delmarks 'a-z'
   vim.cmd.delmarks 'A-Z'
   vim.cmd.delmarks '0-9'
   vim.cmd.delmarks '^.[]'
   vim.cmd.delmarks '"'
   vim.cmd 'delmarks!'
-end, { desc = 'Delete all marks across all buffers' })
+end
 
-return {}
+vim.api.nvim_create_user_command(
+  'TSInstalled',
+  M.delegate_print('installed_parsers:', M.installed_treesitter_parsers()),
+  { desc = 'List installed treesitter parsers' }
+)
+vim.api.nvim_create_user_command('LSPInstalled', M.delegate_print('installed_lsps:', M.installed_lsp_servers()), { desc = 'List installed LSP servers' })
+vim.api.nvim_create_user_command('DeleteMarks', M.delete_marks, { desc = 'Delete all marks across all buffers' })
+
+return M
