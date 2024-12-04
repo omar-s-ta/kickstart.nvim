@@ -90,6 +90,7 @@ return {
       end
 
       table.insert(opts.sources, { name = 'emoji' })
+      opts.experimental.ghost_text = false -- disable ghost_text
 
       local cmp = require 'cmp'
       opts.mapping = vim.tbl_extend('force', opts.mapping or {}, {
