@@ -20,6 +20,22 @@ return {
       'nvim-telescope/telescope-ui-select.nvim',
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
+    keys = {
+      {
+        '<leader>sA',
+        '<cmd>Telescope aerial<cr>',
+        desc = 'Goto Symbol (Aerial)',
+      },
+      {
+        '<leader>ss',
+        function()
+          require('telescope.builtin').lsp_document_symbols {
+            symbols = LazyVim.config.get_kind_filter(),
+          }
+        end,
+        desc = 'Goto Symbol',
+      },
+    },
   },
 
   { 'Bilal2453/luvit-meta', lazy = true },
