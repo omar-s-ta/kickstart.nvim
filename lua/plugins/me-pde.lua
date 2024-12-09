@@ -61,7 +61,12 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     opts = {
-      servers = { eslint = {} },
+      servers = {
+        eslint = {},
+        bashls = {
+          filetypes = { 'sh', 'zsh' },
+        },
+      },
       setup = {
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { 'utf-16' }
