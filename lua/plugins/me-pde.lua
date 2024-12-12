@@ -86,7 +86,7 @@ return {
 
   {
     'tomoakley/circleci.nvim',
-    enable = vim.fn.expand('%:p'):match '/%.circleci/.*%.ya?ml$' ~= nil,
+    ft = { 'yaml' },
     opts = {
       lsp = {
         enable = true,
