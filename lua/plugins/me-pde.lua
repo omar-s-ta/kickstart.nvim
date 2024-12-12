@@ -85,6 +85,17 @@ return {
   },
 
   {
+    'tomoakley/circleci.nvim',
+    enable = vim.fn.expand('%:p'):match '/%.circleci/.*%.ya?ml$' ~= nil,
+    opts = {
+      lsp = {
+        enable = true,
+        config = {},
+      },
+    },
+  },
+
+  {
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-emoji' },
     opts = function(_, opts)
@@ -123,15 +134,6 @@ return {
         end,
       })
     end,
-  },
-
-  {
-    'cuducos/yaml.nvim',
-    ft = { 'yaml' }, -- optional
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-telescope/telescope.nvim', -- optional
-    },
   },
 
   {
