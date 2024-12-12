@@ -27,6 +27,10 @@ function M.delete_marks()
   vim.cmd 'delmarks!'
 end
 
+function M.full_path_of_current_file()
+  vim.fn.expand '%:p'
+end
+
 vim.api.nvim_create_user_command(
   'TSInstalled',
   M.delegate_print('installed_parsers:', M.installed_treesitter_parsers()),
