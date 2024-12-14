@@ -45,17 +45,6 @@ return {
   },
 
   {
-    'tomoakley/circleci.nvim',
-    ft = { 'yaml' },
-    opts = {
-      lsp = {
-        enable = true,
-        config = {},
-      },
-    },
-  },
-
-  {
     'folke/edgy.nvim',
     opts = function(_, opts)
       opts.keys = vim.tbl_extend('force', opts.keys or {}, {
