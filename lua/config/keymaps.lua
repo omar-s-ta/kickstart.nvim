@@ -6,6 +6,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half page' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half page' })
 vim.keymap.set('n', '<leader>se', '/', { desc = 'Search current file' })
 vim.keymap.set('n', 'gg', 'gg0', { desc = 'Move to the first position in current file' })
+vim.keymap.set('n', 'G', 'G$', { desc = 'Move to the last position in the current file' })
 
 --  Resize window using <ctrl><shift> arrow keys
 --  Overrides default keymaps
