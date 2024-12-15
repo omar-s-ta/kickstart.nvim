@@ -21,6 +21,11 @@ vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- Quickfix keymaps
+-- Overrides default keymaps
+vim.keymap.set('n', '<S-j>', vim.cmd.cnext, { desc = 'Next Quickfix' })
+vim.keymap.set('n', '<S-k>', vim.cmd.cprev, { desc = 'Previous Quickfix' })
+
 --  Lua convenience keymaps
 vim.keymap.set('n', '<space><space>x', '<cmd>source %<CR>', { desc = 'Source current file' })
 vim.keymap.set('n', '<space>x', ':.lua<CR>', { desc = 'Run current lua code' })
