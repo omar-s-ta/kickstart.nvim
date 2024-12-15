@@ -27,7 +27,7 @@ vim.keymap.set('n', '<space>x', ':.lua<CR>', { desc = 'Run current lua code' })
 vim.keymap.set('v', '<space>x', ':lua<CR>', { desc = 'Run highlighted lua codes' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
