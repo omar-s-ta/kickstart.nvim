@@ -45,6 +45,22 @@ return {
   },
 
   {
+    'nvim-neotest/neotest',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    opts = {
+      adapters = {
+        ['neotest-scala'] = {
+          runner = 'sbt',
+        },
+      },
+    },
+  },
+
+  {
     'folke/edgy.nvim',
     opts = function(_, opts)
       opts.keys = vim.tbl_extend('force', opts.keys or {}, {
