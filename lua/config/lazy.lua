@@ -31,7 +31,7 @@ require('lazy').setup {
     -- edgy must be imported before aerial
     { import = 'lazyvim.plugins.extras.ui.edgy' },
 
-    { import = 'lazyvim.plugins.extras.ai.copilot' },
+    -- { import = 'lazyvim.plugins.extras.ai.copilot' },
     { import = 'lazyvim.plugins.extras.ai.copilot-chat' },
 
     { import = 'lazyvim.plugins.extras.coding.luasnip' },
@@ -64,6 +64,8 @@ require('lazy').setup {
     { import = 'lazyvim.plugins.extras.lang.yaml' },
 
     { import = 'lazyvim.plugins.extras.linting.eslint' },
+
+    { import = 'lazyvim.plugins.extras.test.core' },
 
     { import = 'lazyvim.plugins.extras.ui.treesitter-context' },
 
