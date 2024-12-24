@@ -7,6 +7,9 @@ return {
   'rebelot/kanagawa.nvim',
   'shaunsingh/nord.nvim',
   'ellisonleao/gruvbox.nvim',
+  'talha-akram/noctis.nvim',
+  'Vallen217/eidolon.nvim',
+  'nyoom-engineering/oxocarbon.nvim',
 
   -- installed but loaded lazily with 'lazy = true'
   -- 'folke/tokyonight.nvim',
