@@ -51,13 +51,6 @@ return {
       'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
     },
-    opts = {
-      adapters = {
-        ['neotest-scala'] = {
-          runner = 'sbt',
-        },
-      },
-    },
   },
 
   {
