@@ -26,6 +26,11 @@ return {
         bashls = {
           filetypes = { 'sh', 'zsh' },
         },
+        metals = {
+          keys = {
+            { 'gS', '<cmd>MetalsGotoSuperMethod<CR>', desc = 'Goto Super' },
+          },
+        },
       },
       setup = {
         clangd = function(_, opts)
