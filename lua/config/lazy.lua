@@ -32,7 +32,7 @@ require('lazy').setup {
     { import = 'lazyvim.plugins.extras.ui.edgy' },
 
     -- { import = 'lazyvim.plugins.extras.ai.copilot' },
-    { import = 'lazyvim.plugins.extras.ai.copilot-chat' },
+    -- { import = 'lazyvim.plugins.extras.ai.copilot-chat' },
 
     { import = 'lazyvim.plugins.extras.coding.luasnip' },
     { import = 'lazyvim.plugins.extras.coding.mini-surround' },
