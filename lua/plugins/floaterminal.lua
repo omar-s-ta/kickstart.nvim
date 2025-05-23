@@ -49,7 +49,7 @@ local toggle_term = function()
   end
 end
 
-vim.api.nvim_create_user_command('Floaterminal', toggle_term, {})
-vim.keymap.set({ 'n', 't' }, '<space><space>t', toggle_term, { desc = 'Floating terminal' })
+-- vim.api.nvim_create_user_command('Floaterminal', toggle_term, {})
+-- vim.keymap.set({ 'n', 't' }, '<space><space>t', toggle_term, { desc = 'Floating terminal' })
 
 return M
