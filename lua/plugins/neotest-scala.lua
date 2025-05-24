@@ -16,7 +16,7 @@ return {
           -- Test framework to use. Will use utest by default.
           -- Can be a function to return dynamic value.
           -- Possibly values utest|munit|scalatest.
-          framework = 'munit',
+          framework = 'scalatest',
         },
       },
     },
