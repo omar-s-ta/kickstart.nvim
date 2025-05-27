@@ -6,7 +6,7 @@ vim.g.mapleader = ' '
 -- Overrides ~/.local/share/nvim/lazy/LazyVim/lua/config/options.lua
 vim.g.maplocalleader = ' '
 
-vim.g.lazyvim_picker = 'snacks'
+-- vim.g.lazyvim_picker = 'snacks'
 -- LSP Server to use for Python.
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 vim.g.lazyvim_python_lsp = 'pyright'
